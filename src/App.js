@@ -9,10 +9,15 @@ function App() {
   const [homeScore, setHomeScore] = useState(0);
   const [awayScore, setAwayScore] = useState(0);
   const [quarter, setQuarter] = useState(1);
-  const [time, setTime] = useState(35);
+  const [time, setTime] = useState(900);
   const [isActive, setActive] = useState(true);
 
-  
+  const format = () => {
+    let minutes = Math.floor(time/60);
+    let seconds = time % 60;
+    return `${minutes.toString().padStart(2,0)} : ${seconds.toString().padStart(2,0)}`
+  };
+
   const touchDownHome = (e) => {
 setHomeScore(homeScore + 7);
   };
@@ -50,14 +55,14 @@ setHomeScore(homeScore + 7);
          else if(!isActive && time != 0) {
          clearInterval(interval)
          } else if (time = 0 && quarter <= 4){
-           setTime(35);
+           setTime(900);
            nextQuarter();
 
          }
          else if ((time === 0 && quarter === 4) || quarter === "OT" ||quarter === 'OT2'){
            clearInterval(interval);
            setQuarter();
-           setTime(35);
+           setTime(900);
          }
         
          return () => clearInterval(interval)
@@ -97,7 +102,7 @@ setHomeScore(homeScore + 7);
 
             <div className="home__score">{homeScore}</div>
           </div>
-          <div className="timer">{time}</div>
+          <div className="timer">{format()}</div>
           <div className="away">
             <h2 className="away__name">Jax Jaguars</h2>
             <div className="away__score">{awayScore}</div>
@@ -117,6 +122,7 @@ setHomeScore(homeScore + 7);
         <div className="awayButtons">
           <button className="awayButtons__touchdown" onClick = {touchDownAway} >Away Touchdown</button>
           <button  className="awayButtons__fieldGoal" onClick = {fieldGoalAway}>Away Field Goal</button>
+          <button onClick = {() => setActive(!isActive)}>Pause Game</button>
         </div>
       </section>
     </div>
