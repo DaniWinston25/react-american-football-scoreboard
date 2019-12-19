@@ -12,6 +12,7 @@ function App() {
   const [time, setTime] = useState(35);
   const [isActive, setActive] = useState(true);
 
+  
   const touchDownHome = (e) => {
 setHomeScore(homeScore + 7);
   };
