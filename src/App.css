@@ -6,7 +6,7 @@
 .scoreboard {
   width: 58%;
   margin: 10rem auto;
-  background-color: #0b5402;
+  background-color:  #0076B6;
   color: white;
   border-radius: 0.5rem;
   margin-top: 10rem;
@@ -34,11 +34,11 @@
 }
 
 .home {
-  background-color: #656565;
+  background-color:#B0B7BC;
 }
 
 .away {
-  background-color: #af750a;
+  background-color: #006778;
 }
 
 .home__name,
@@ -65,7 +65,7 @@
 
 .timer {
   font-family: "Ozone";
-  font-size: 9rem;
+  font-size: 3rem;
   padding: 2rem;
   text-align: center;
   background-color: var(--black);
